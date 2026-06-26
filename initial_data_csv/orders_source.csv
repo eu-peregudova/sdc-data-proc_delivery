@@ -1,24 +1,24 @@
 Order_Code,Customer_Email,Delivery_Address,Order_Date,Order_Status,Item_Code,Quantity,Historical_Unit_Price,Delivery_Fee,Driver_Tip
-ORD9901,alice.smith@email.com,789 Maple St,2026-05-10 18:30:00,Delivered,ITEM001,2,14.99,3.50,5.00
-ORD9901,alice.smith@email.com,789 Maple St,2026-05-10 18:30:00,Delivered,ITEM002,1,16.99,3.50,5.00
-ORD9902,bob.jones@email.com,101 Pine Rd,2026-05-12 19:15:00,Delivered,ITEM003,1,11.99,2.99,4.00
-ORD9902,bob.jones@email.com,101 Pine Rd,2026-05-12 19:15:00,Delivered,ITEM004,2,4.99,2.99,4.00
-ORD9903,charlie.brown@email.com,555 Oak Ln,2026-05-15 12:22:00,Delivered,ITEM005,1,15.50,4.00,3.50
-ORD9904,alice.smith@email.com,789 Maple St,2026-05-20 20:05:00,Cancelled,ITEM001,1,14.99,3.50,0.00
-ORD9905,evan.wright@email.com,222 Cedar Dr,2026-05-25 17:45:00,Delivered,ITEM007,3,10.99,1.99,3.00
-ORD9905,evan.wright@email.com,222 Cedar Dr,2026-05-25 17:45:00,Delivered,ITEM008,1,13.50,1.99,3.00
-ORD9906,fiona.gallagher@email.com,444 Birch Blvd,2026-05-28 13:10:00,Delivered,ITEM009,1,12.50,2.50,4.50
-ORD9906,fiona.gallagher@email.com,444 Birch Blvd,2026-05-28 13:10:00,Delivered,ITEM010,1,9.99,2.50,4.50
-ORD9907,george.clooney@email.com,777 Walnut St,2026-06-02 19:30:00,Delivered,ITEM005,2,15.50,3.99,6.00
-ORD9907,george.clooney@email.com,777 Walnut St,2026-06-02 19:30:00,Delivered,ITEM006,2,13.00,3.99,6.00
-ORD9908,hannah.abbott@email.com,888 Spruce Ct,2026-06-05 18:00:00,Delivered,ITEM003,2,11.99,2.99,4.00
-ORD9908,hannah.abbott@email.com,888 Spruce Ct,2026-06-05 18:00:00,Delivered,ITEM004,1,4.99,2.99,4.00
-ORD9909,bob.jones@email.com,101 Pine Rd,2026-06-10 21:15:00,Delivered,ITEM001,1,14.99,3.50,5.00
-ORD9909,bob.jones@email.com,101 Pine Rd,2026-06-10 21:15:00,Delivered,ITEM002,2,16.99,3.50,5.00
-ORD9910,charlie.brown@email.com,555 Oak Ln,2026-06-12 11:45:00,Delivered,ITEM008,2,13.50,1.99,2.50
-ORD9911,diana.prince@email.com,999 Willow Rd,2026-06-18 20:30:00,Delivered,ITEM005,1,15.50,3.99,5.50
-ORD9911,diana.prince@email.com,999 Willow Rd,2026-06-18 20:30:00,Delivered,ITEM006,1,13.00,3.99,5.50
-ORD9912,evan.wright@email.com,222 Cedar Dr,2026-06-20 12:00:00,Delivered,ITEM002,1,16.99,3.50,4.00
-ORD9913,fiona.gallagher@email.com,444 Birch Blvd,2026-06-22 17:15:00,Delivered,ITEM007,2,10.99,1.99,3.00
-ORD9914,george.clooney@email.com,777 Walnut St,2026-06-24 13:00:00,Delivered,ITEM009,2,12.50,2.50,5.00
-ORD9914,george.clooney@email.com,777 Walnut St,2026-06-24 13:00:00,Delivered,ITEM010,1,9.99,2.50,5.00
+ORD9901,alice.smith@email.com,"Gedimino pr. 42, Vilnius",2026-05-10 18:30:00,Delivered,ITEM001,2,14.99,3.50,5.00
+ORD9901,alice.smith@email.com,"Gedimino pr. 42, Vilnius",2026-05-10 18:30:00,Delivered,ITEM002,1,16.99,3.50,5.00
+ORD9902,bob.jones@email.com,"Kalvarijų g. 7, Vilnius",2026-05-12 19:15:00,Delivered,ITEM003,1,11.99,2.99,4.00
+ORD9902,bob.jones@email.com,"Kalvarijų g. 7, Vilnius",2026-05-12 19:15:00,Delivered,ITEM004,2,4.99,2.99,4.00
+ORD9903,charlie.brown@email.com,"Šv. Jono g. 3, Vilnius",2026-05-15 12:22:00,Delivered,ITEM005,1,15.50,4.00,3.50
+ORD9904,alice.smith@email.com,"Gedimino pr. 42, Vilnius",2026-05-20 20:05:00,Cancelled,ITEM001,1,14.99,3.50,0.00
+ORD9905,evan.wright@email.com,"Savanorių pr. 15, Vilnius",2026-05-25 17:45:00,Delivered,ITEM007,3,10.99,1.99,3.00
+ORD9905,evan.wright@email.com,"Savanorių pr. 15, Vilnius",2026-05-25 17:45:00,Delivered,ITEM008,1,13.50,1.99,3.00
+ORD9906,fiona.gallagher@email.com,"Užupio g. 4, Vilnius",2026-05-28 13:10:00,Delivered,ITEM009,1,12.50,2.50,4.50
+ORD9906,fiona.gallagher@email.com,"Užupio g. 4, Vilnius",2026-05-28 13:10:00,Delivered,ITEM010,1,9.99,2.50,4.50
+ORD9907,george.clooney@email.com,"Konstitucijos pr. 21, Vilnius",2026-06-02 19:30:00,Delivered,ITEM005,2,15.50,3.99,6.00
+ORD9907,george.clooney@email.com,"Konstitucijos pr. 21, Vilnius",2026-06-02 19:30:00,Delivered,ITEM006,2,13.00,3.99,6.00
+ORD9908,hannah.abbott@email.com,"Naugarduko g. 22, Vilnius",2026-06-05 18:00:00,Delivered,ITEM003,2,11.99,2.99,4.00
+ORD9908,hannah.abbott@email.com,"Naugarduko g. 22, Vilnius",2026-06-05 18:00:00,Delivered,ITEM004,1,4.99,2.99,4.00
+ORD9909,bob.jones@email.com,"Kalvarijų g. 7, Vilnius",2026-06-10 21:15:00,Delivered,ITEM001,1,14.99,3.50,5.00
+ORD9909,bob.jones@email.com,"Kalvarijų g. 7, Vilnius",2026-06-10 21:15:00,Delivered,ITEM002,2,16.99,3.50,5.00
+ORD9910,charlie.brown@email.com,"Šv. Jono g. 3, Vilnius",2026-06-12 11:45:00,Delivered,ITEM008,2,13.50,1.99,2.50
+ORD9911,diana.prince@email.com,"Žvėryno g. 19, Vilnius",2026-06-18 20:30:00,Delivered,ITEM005,1,15.50,3.99,5.50
+ORD9911,diana.prince@email.com,"Žvėryno g. 19, Vilnius",2026-06-18 20:30:00,Delivered,ITEM006,1,13.00,3.99,5.50
+ORD9912,evan.wright@email.com,"Savanorių pr. 15, Vilnius",2026-06-20 12:00:00,Delivered,ITEM002,1,16.99,3.50,4.00
+ORD9913,fiona.gallagher@email.com,"Užupio g. 4, Vilnius",2026-06-22 17:15:00,Delivered,ITEM007,2,10.99,1.99,3.00
+ORD9914,george.clooney@email.com,"Konstitucijos pr. 21, Vilnius",2026-06-24 13:00:00,Delivered,ITEM009,2,12.50,2.50,5.00
+ORD9914,george.clooney@email.com,"Konstitucijos pr. 21, Vilnius",2026-06-24 13:00:00,Delivered,ITEM010,1,9.99,2.50,5.00

@@ -1,0 +1,105 @@
+// OLTP schema: 3NF relational database for a food delivery application
+// Database: delivery_oltp (PostgreSQL, port 5432)
+
+Table cuisines {
+  cuisine_code varchar(50)  [pk]
+  cuisine_name varchar(100) [not null, unique]
+  is_active    boolean      [not null, default: true, note: 'false = soft-deleted']
+}
+
+Table restaurants {
+  restaurant_code    varchar(50)  [pk]
+  restaurant_name    varchar(150) [not null]
+  restaurant_address varchar(255) [not null, note: 'format: "Street, District, City"']
+  is_active          boolean      [not null, default: true, note: 'false = soft-deleted']
+}
+
+Table restaurant_cuisines {
+  restaurant_code varchar(50) [not null]
+  cuisine_code    varchar(50) [not null]
+
+  indexes {
+    (restaurant_code, cuisine_code) [pk]
+  }
+}
+
+Table customers {
+  email             varchar(255) [pk]
+  first_name        varchar(100) [not null]
+  last_name         varchar(100) [not null]
+  password_hash     varchar(255) [not null]
+  registration_date date         [not null, default: `current_date`]
+  is_active         boolean      [not null, default: true, note: 'false = soft-deleted']
+}
+
+Table menu_items {
+  item_code       varchar(50)   [pk]
+  restaurant_code varchar(50)   [not null]
+  item_name       varchar(150)  [not null]
+  base_price      numeric(10,2) [not null, note: '>= 0']
+  is_active       boolean       [not null, default: true, note: 'false = soft-deleted']
+}
+
+Table basket_items {
+  email     varchar(255) [not null]
+  item_code varchar(50)  [not null]
+  quantity  int          [not null, note: '> 0']
+  added_at  timestamp    [not null, default: `current_timestamp`]
+
+  indexes {
+    (email, item_code) [pk]
+  }
+}
+
+Table orders {
+  order_code       varchar(50)   [pk]
+  restaurant_code  varchar(50)   [not null]
+  email            varchar(255)  [not null]
+  delivery_address varchar(255)  [not null]
+  order_date       timestamp     [not null]
+  order_status     varchar(50)   [not null]
+  delivery_fee     numeric(10,2) [not null, note: '>= 0']
+  driver_tip       numeric(10,2) [not null, note: '>= 0']
+}
+
+Table order_items {
+  order_code            varchar(50)   [not null]
+  item_code             varchar(50)   [not null]
+  quantity              int           [not null, note: '> 0']
+  historical_unit_price numeric(10,2) [not null, note: '>= 0']
+
+  indexes {
+    (order_code, item_code) [pk]
+  }
+}
+
+Table restaurant_reviews {
+  email           varchar(255) [not null]
+  restaurant_code varchar(50)  [not null]
+  rating_score    int          [not null, note: 'between 1 and 5']
+  review_text     text
+  review_date     timestamp    [not null]
+
+  indexes {
+    (email, restaurant_code, review_date) [pk]
+  }
+}
+
+// --- Relationships ---
+
+Ref: restaurant_cuisines.restaurant_code > restaurants.restaurant_code [delete: cascade]
+Ref: restaurant_cuisines.cuisine_code    > cuisines.cuisine_code       [delete: cascade]
+
+Ref: menu_items.restaurant_code > restaurants.restaurant_code [delete: restrict]
+
+Ref: basket_items.email     > customers.email         [delete: cascade]
+Ref: basket_items.item_code > menu_items.item_code    [delete: cascade]
+
+Ref: orders.restaurant_code > restaurants.restaurant_code [delete: cascade]
+Ref: orders.email           > customers.email             [delete: restrict]
+
+Ref: order_items.order_code > orders.order_code       [delete: cascade]
+Ref: order_items.item_code  > menu_items.item_code    [delete: restrict]
+
+Ref: restaurant_reviews.email           > customers.email             [delete: cascade]
+Ref: restaurant_reviews.restaurant_code > restaurants.restaurant_code [delete: cascade]

@@ -1,17 +1,17 @@
 Item_Code,Item_Name,Base_Price,Restaurant_Code,Restaurant_Name,Restaurant_Address,Cuisine_Code,Cuisine_Name
-ITEM001,Margherita Pizza,14.99,REST01,Mario's Trattoria,123 Pasta Ave,ITA,Italian
-ITEM001,Margherita Pizza,14.99,REST01,Mario's Trattoria,123 Pasta Ave,PIZ,Pizza
-ITEM002,Lasagna,16.99,REST01,Mario's Trattoria,123 Pasta Ave,ITA,Italian
-ITEM002,Lasagna,16.99,REST01,Mario's Trattoria,123 Pasta Ave,PIZ,Pizza
-ITEM003,Classic Cheeseburger,11.99,REST02,Burger Shack,456 Grill Way,BUR,Burgers
-ITEM003,Classic Cheeseburger,11.99,REST02,Burger Shack,456 Grill Way,USA,American
-ITEM004,French Fries,4.99,REST02,Burger Shack,456 Grill Way,BUR,Burgers
-ITEM004,French Fries,4.99,REST02,Burger Shack,456 Grill Way,USA,American
-ITEM005,Spicy Tuna Roll,15.50,REST03,Sakura Sushi,789 Blossom Blvd,JPN,Japanese
-ITEM005,Spicy Tuna Roll,15.50,REST03,Sakura Sushi,789 Blossom Blvd,ASI,Asian
-ITEM006,Salmon Nigiri,13.00,REST03,Sakura Sushi,789 Blossom Blvd,JPN,Japanese
-ITEM006,Salmon Nigiri,13.00,REST03,Sakura Sushi,789 Blossom Blvd,ASI,Asian
-ITEM007,Chicken Tacos,10.99,REST04,Taco Fiesta,321 Salsa St,MEX,Mexican
-ITEM008,Burrito Grande,13.50,REST04,Taco Fiesta,321 Salsa St,MEX,Mexican
-ITEM009,Avocado Salad,12.50,REST05,Green Garden,654 Veggie Ln,VEG,Vegetarian
-ITEM010,Acai Bowl,9.99,REST05,Green Garden,654 Veggie Ln,VEG,Vegetarian
+ITEM001,Margherita Pizza,14.99,REST01,Mario's Trattoria,"Pilies g. 14, Senamiestis, Vilnius",ITA,Italian
+ITEM001,Margherita Pizza,14.99,REST01,Mario's Trattoria,"Pilies g. 14, Senamiestis, Vilnius",PIZ,Pizza
+ITEM002,Lasagna,16.99,REST01,Mario's Trattoria,"Pilies g. 14, Senamiestis, Vilnius",ITA,Italian
+ITEM002,Lasagna,16.99,REST01,Mario's Trattoria,"Pilies g. 14, Senamiestis, Vilnius",PIZ,Pizza
+ITEM003,Classic Cheeseburger,11.99,REST02,Burger Shack,"Gedimino pr. 35, Naujamiestis, Vilnius",BUR,Burgers
+ITEM003,Classic Cheeseburger,11.99,REST02,Burger Shack,"Gedimino pr. 35, Naujamiestis, Vilnius",USA,American
+ITEM004,French Fries,4.99,REST02,Burger Shack,"Gedimino pr. 35, Naujamiestis, Vilnius",BUR,Burgers
+ITEM004,French Fries,4.99,REST02,Burger Shack,"Gedimino pr. 35, Naujamiestis, Vilnius",USA,American
+ITEM005,Spicy Tuna Roll,15.50,REST03,Sakura Sushi,"Birutės g. 8, Žvėrynas, Vilnius",JPN,Japanese
+ITEM005,Spicy Tuna Roll,15.50,REST03,Sakura Sushi,"Birutės g. 8, Žvėrynas, Vilnius",ASI,Asian
+ITEM006,Salmon Nigiri,13.00,REST03,Sakura Sushi,"Birutės g. 8, Žvėrynas, Vilnius",JPN,Japanese
+ITEM006,Salmon Nigiri,13.00,REST03,Sakura Sushi,"Birutės g. 8, Žvėrynas, Vilnius",ASI,Asian
+ITEM007,Chicken Tacos,10.99,REST04,Taco Fiesta,"Antakalnio g. 27, Antakalnis, Vilnius",MEX,Mexican
+ITEM008,Burrito Grande,13.50,REST04,Taco Fiesta,"Antakalnio g. 27, Antakalnis, Vilnius",MEX,Mexican
+ITEM009,Avocado Salad,12.50,REST05,Green Garden,"Ozo g. 12, Šnipiškės, Vilnius",VEG,Vegetarian
+ITEM010,Acai Bowl,9.99,REST05,Green Garden,"Ozo g. 12, Šnipiškės, Vilnius",VEG,Vegetarian

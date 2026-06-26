@@ -1,0 +1,138 @@
+// OLAP schema: Snowflake data warehouse for food delivery analytics
+// Database: delivery_olap (PostgreSQL, port 5433)
+//
+// Snowflake dim-to-dim links:
+//   fact_sales → dim_restaurants → dim_geography   (city/country sub-dimension)
+//   fact_sales → dim_restaurants → dim_menu_item_history (SCD2 sub-dimension)
+//   dim_restaurants ↔ dim_cuisines via bridge_restaurant_cuisines (many-to-many)
+//   fact_sales → dim_order_status                  (status lookup dimension)
+//   SCD Type 2 on dim_menu_item_history (price/name versioning)
+
+Table dim_date {
+  date_key         int          [pk, note: 'YYYYMMDD integer key']
+  full_date        date         [not null]
+  day_of_week      varchar(15)  [not null]
+  month_name       varchar(15)  [not null]
+  calendar_quarter varchar(2)   [not null, note: 'e.g. Q1, Q2']
+  calendar_year    int          [not null]
+}
+
+Table dim_customers {
+  customer_key      int          [pk, increment]
+  email             varchar(255) [not null, unique]
+  first_name        varchar(100) [not null]
+  last_name         varchar(100) [not null]
+  registration_date date         [not null]
+  is_active         boolean      [not null, default: true, note: 'false = soft-deleted from source']
+}
+
+Table dim_cuisines {
+  cuisine_key  int          [pk, increment]
+  cuisine_code varchar(50)  [not null, unique]
+  cuisine_name varchar(100) [not null]
+  is_active    boolean      [not null, default: true, note: 'false = soft-deleted from source']
+}
+
+// Geographic sub-dimension: normalises city/country out of dim_restaurants
+// district = Vilnius neighbourhood (e.g. Senamiestis, Naujamiestis)
+Table dim_geography {
+  geography_key int          [pk, increment]
+  district      varchar(100) [not null]
+  city          varchar(100) [not null, default: 'Vilnius']
+  country       varchar(100) [not null, default: 'Lithuania']
+
+  indexes {
+    (district, city, country) [unique]
+  }
+}
+
+// dim_restaurants references dim_geography: snowflake dim-to-dim link
+Table dim_restaurants {
+  restaurant_key         int          [pk, increment]
+  source_restaurant_code varchar(50)  [not null, unique]
+  restaurant_name        varchar(150) [not null]
+  restaurant_address     varchar(255) [not null]
+  geography_key          int          [not null, note: 'FK → dim_geography (snowflake link)']
+  is_active              boolean      [not null, default: true, note: 'false = soft-deleted from source']
+}
+
+// Low-cardinality status lookup: avoids repeating the status string in every fact row
+Table dim_order_status {
+  order_status_key int          [pk, increment]
+  status_code      varchar(50)  [not null, unique]
+  status_label     varchar(100) [not null]
+}
+
+// SCD Type 2: each price or name change creates a new version row;
+// references dim_restaurants to form the snowflake sub-dimension link
+Table dim_menu_item_history {
+  menu_item_key  int           [pk, increment]
+  item_code      varchar(50)   [not null]
+  item_name      varchar(150)  [not null]
+  base_price     decimal(10,2) [not null]
+  restaurant_key int           [not null, note: 'FK → dim_restaurants (snowflake link)']
+  valid_from     timestamp     [not null]
+  valid_to       timestamp     [note: 'null = currently active record']
+  is_current     boolean       [not null, default: true]
+}
+
+// Bridge table: many-to-many between restaurants and cuisines
+Table bridge_restaurant_cuisines {
+  restaurant_key int [not null]
+  cuisine_key    int [not null]
+
+  indexes {
+    (restaurant_key, cuisine_key) [pk]
+  }
+}
+
+Table fact_sales {
+  fact_sales_id           int           [pk, increment]
+  order_code              varchar(50)   [not null]
+  date_key                int           [not null]
+  customer_key            int           [not null]
+  restaurant_key          int           [not null]
+  menu_item_key           int           [not null, note: 'temporally matched SCD2 version']
+  order_status_key        int           [not null, note: 'FK → dim_order_status']
+  quantity_ordered        int           [not null]
+  historical_unit_price   decimal(10,2) [not null]
+  line_item_gross_revenue decimal(10,2) [not null]
+  delivery_fees           decimal(10,2) [note: 'pro-rata share of order-level delivery fee']
+  driver_tips             decimal(10,2) [note: 'pro-rata share of order-level driver tip']
+  net_revenue             decimal(10,2) [not null, note: 'gross + allocated delivery + allocated tip']
+}
+
+Table fact_restaurant_ratings {
+  fact_rating_id       int           [pk, increment]
+  date_key             int           [not null]
+  restaurant_key       int           [not null]
+  total_review_count   int           [not null]
+  average_rating_score decimal(3,2)  [not null]
+
+  indexes {
+    (date_key, restaurant_key) [unique]
+  }
+}
+
+// --- Relationships ---
+
+// snowflake: restaurant references geography sub-dimension (dim-to-dim)
+Ref: dim_restaurants.geography_key > dim_geography.geography_key
+
+// snowflake: menu item history sub-dimension references restaurant dimension (dim-to-dim)
+Ref: dim_menu_item_history.restaurant_key > dim_restaurants.restaurant_key
+
+// bridge: many-to-many between restaurants and cuisines
+Ref: bridge_restaurant_cuisines.restaurant_key > dim_restaurants.restaurant_key
+Ref: bridge_restaurant_cuisines.cuisine_key    > dim_cuisines.cuisine_key
+
+// fact_sales foreign keys
+Ref: fact_sales.date_key          > dim_date.date_key
+Ref: fact_sales.customer_key      > dim_customers.customer_key
+Ref: fact_sales.restaurant_key    > dim_restaurants.restaurant_key
+Ref: fact_sales.menu_item_key     > dim_menu_item_history.menu_item_key
+Ref: fact_sales.order_status_key  > dim_order_status.order_status_key
+
+// fact_restaurant_ratings foreign keys
+Ref: fact_restaurant_ratings.date_key       > dim_date.date_key
+Ref: fact_restaurant_ratings.restaurant_key > dim_restaurants.restaurant_key
