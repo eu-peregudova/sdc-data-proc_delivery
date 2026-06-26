@@ -1,0 +1,38 @@
+services:
+  oltp_db:
+    image: postgres:18
+    container_name: delivery_oltp
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: delivery_oltp
+    ports:
+      - "5432:5432"
+    volumes:
+      - ${PWD}/initial_data_csv:/mnt/data:z
+    restart: always
+
+  olap_db:
+    image: postgres:18
+    container_name: delivery_olap
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: delivery_olap
+    ports:
+      - "5433:5432"
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_dashboard
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ademo@example.com
+      PGADMIN_DEFAULT_PASSWORD: secret
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+    ports:
+      - "8080:80"
+    restart: always
+
+volumes: {}

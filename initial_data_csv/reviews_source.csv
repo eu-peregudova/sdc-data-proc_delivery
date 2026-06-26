@@ -1,0 +1,9 @@
+Customer_Email,Restaurant_Code,Rating_Score,Review_Text,Review_Date
+alice.smith@email.com,REST01,5,Authentic Italian taste. Loved the Margherita!,2026-05-11 12:00:00
+bob.jones@email.com,REST02,4,Great burgers but the fries were a bit cold.,2026-05-13 09:30:00
+charlie.brown@email.com,REST03,5,Incredible fresh sushi. Prompt delivery.,2026-05-16 14:10:00
+evan.wright@email.com,REST04,3,Tacos were decent but arrived lukewarm.,2026-05-26 19:00:00
+fiona.gallagher@email.com,REST05,5,Fresh healthy options. The Acai bowl was amazing.,2026-05-29 15:30:00
+george.clooney@email.com,REST03,4,Excellent fish quality. Will order again.,2026-06-03 21:00:00
+hannah.abbott@email.com,REST02,5,Best classic cheeseburger in the city!,2026-06-06 19:20:00
+bob.jones@email.com,REST01,4,Solid thin crust pizza. Quick delivery.,2026-06-11 22:00:00

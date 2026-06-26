@@ -1,0 +1,9 @@
+Email,First_Name,Last_Name,Password_Hash,Registration_Date
+alice.smith@email.com,Alice,Smith,$2b$12$K3vZg7R6H2yM9bO1v5eXuO8pYmCwDqEaRz,2026-01-15
+bob.jones@email.com,Bob,Jones,$2b$12$P5qN8mK4v1wXz7r3t2yUeOpLkJhGfFdDsSa,2026-02-01
+charlie.brown@email.com,Charlie,Brown,$2b$12$W9xY8z7v6u5t4s3r2q1pOiUhYgTfRdEsWa,2026-03-10
+diana.prince@email.com,Diana,Prince,$2b$12$M1n2b3v4c5x6z7l8k9j0HeGfDsSaQzWxEc,2026-04-18
+evan.wright@email.com,Evan,Wright,$2b$12$X7r3t2yUeOpLkJhGfFdDsSaP5qN8mK4v1w,2026-04-22
+fiona.gallagher@email.com,Fiona,Gallagher,$2b$12$Z7l8k9j0HeGfDsSaQzWxEcM1n2b3v4c5x,2026-05-02
+george.clooney@email.com,George,Clooney,$2b$12$YgTfRdEsWaW9xY8z7v6u5t4s3r2q1pOi,2026-05-15
+hannah.abbott@email.com,Hannah,Abbott,$2b$12$v5eXuO8pYmCwDqEaRzK3vZg7R6H2yM9bO,2026-05-20
